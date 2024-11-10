@@ -32,11 +32,8 @@ public class CarController {
             @RequestParam(defaultValue = "10") int size,
             Model model
     ) {
-        // Получаем список автомобилей по фильтру с учетом пагинации
         List<CarResponse> carResponseList = carService.search(filter, page, size);
-        // Добавляем список автомобилей в модель для отображения на странице
         model.addAttribute("carResponseList", carResponseList);
-        // Возвращаем имя представления для отображения (например, index.html)
         return "index";
     }
 }
